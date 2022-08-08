@@ -9,11 +9,10 @@ jobs:
     timeout-minutes: 9999
 
     steps:
-    - name: Download
-      run: Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
+    - name: Downloading Ngrok.
+       run: Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
     - name: Extract
       run: Expand-Archive ngrok.zip
-    - name: Auth
     - name: Connecting to your Ngrok account.
       run: .\ngrok\ngrok.exe authtoken $Env:NGROK_AUTH_TOKEN
       env:
